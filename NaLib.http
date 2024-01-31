@@ -1,0 +1,6 @@
+@NaLib_HostAddress = http://localhost:5009
+
+GET {{NaLib_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
