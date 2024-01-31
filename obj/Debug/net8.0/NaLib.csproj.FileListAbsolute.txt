@@ -62,3 +62,4 @@
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/NaLib.csproj.CopyComplete
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/NaLib.genruntimeconfig.cache
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/ref/NaLib.dll
+/home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/NaLib.sourcelink.json

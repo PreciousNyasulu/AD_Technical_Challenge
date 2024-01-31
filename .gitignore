@@ -1,0 +1,9 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+
+.vscode/
+
+*.suo
+
+bin/
