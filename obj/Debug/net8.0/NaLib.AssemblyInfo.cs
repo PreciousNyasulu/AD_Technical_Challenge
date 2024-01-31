@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NaLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6714a1db0417b05b76cbf293d5b42219f5501642")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e10e235e078993f19baa0e320a6e4a949f57bbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("NaLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NaLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
