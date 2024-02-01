@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj": {}
+    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {}
   },
   "projects": {
-    "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj": {
+    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj",
+        "projectUniqueName": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
         "projectName": "NaLib",
-        "projectPath": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj",
-        "packagesPath": "/home/th33byt3r/.nuget/packages/",
-        "outputPath": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/obj/",
+        "projectPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
+        "packagesPath": "/home/it/.nuget/packages/",
+        "outputPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/th33byt3r/.nuget/NuGet/NuGet.Config"
+          "/home/it/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -41,6 +41,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.28, )"
+            },
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -70,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/th33byt3r/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

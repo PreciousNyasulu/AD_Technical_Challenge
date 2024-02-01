@@ -8,3 +8,4 @@ project.fragment.lock.json
 
 bin/
 .fake
+*.env

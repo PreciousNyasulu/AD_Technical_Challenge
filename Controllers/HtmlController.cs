@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace NaLib.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/")]
 public class HtmlController : ControllerBase
 {
     private readonly ILogger<HtmlController> _logger;

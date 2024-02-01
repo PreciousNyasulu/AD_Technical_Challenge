@@ -13,10 +13,14 @@ public class AuthController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "login")]
-    public IActionResult Get()
+    [HttpPost("login",Name = "login")]
+    public IActionResult Post([FromBody] LoginPayload Body)
     {
-        
+        if (Body == null)
+        {
+            return BadRequest();
+        }
+        return Ok(Body);
     }
        
 }

@@ -63,3 +63,7 @@
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/NaLib.genruntimeconfig.cache
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/ref/NaLib.dll
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/Debug/net8.0/NaLib.sourcelink.json
+/home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/Dapper.dll
+/home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/Npgsql.dll
+/home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/DotNetEnv.dll
+/home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/Sprache.dll
