@@ -20,7 +20,19 @@ public class AuthController : ControllerBase
         {
             return BadRequest();
         }
-        return Ok(Body);
+
+        UserRepository abstractInterface;
+
+        abstractInterface = new UserRepository();
+
+        return Ok(abstractInterface.GetUsers());
+    }
+
+    [HttpPost("register",Name ="register")]
+    public IActionResult Post([FromBody] Users User)
+    {
+        
+        return Ok();
     }
        
 }
