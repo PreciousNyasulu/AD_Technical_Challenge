@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {}
+    "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj": {}
   },
   "projects": {
-    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {
+    "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
+        "projectUniqueName": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj",
         "projectName": "NaLib",
-        "projectPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
-        "packagesPath": "/home/it/.nuget/packages/",
-        "outputPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/",
+        "projectPath": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/NaLib.csproj",
+        "packagesPath": "/home/th33byt3r/.nuget/packages/",
+        "outputPath": "/home/th33byt3r/Documents/code/AD_Technical_Challenge/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/it/.nuget/NuGet/NuGet.Config"
+          "/home/th33byt3r/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -38,6 +38,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.28, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -62,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/th33byt3r/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

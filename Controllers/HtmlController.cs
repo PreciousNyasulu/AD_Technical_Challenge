@@ -6,12 +6,6 @@ namespace NaLib.Controllers;
 [Route("[controller]")]
 public class HtmlController : ControllerBase
 {
-
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILogger<HtmlController> _logger;
 
     public HtmlController(ILogger<HtmlController> logger)

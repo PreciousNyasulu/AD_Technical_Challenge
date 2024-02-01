@@ -7,3 +7,4 @@ project.fragment.lock.json
 *.suo
 
 bin/
+.fake
