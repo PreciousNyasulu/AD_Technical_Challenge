@@ -1,4 +1,6 @@
-﻿namespace NaLib;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NaLib;
 
 public class Users
 {
@@ -14,5 +16,8 @@ public class Users
 
     public string? PhoneNumber { get; set; }
 
-    
+    [EnumDataType(typeof(Roles), ErrorMessage = "Invalid value for role.")]
+    public Roles Role { get; set; }
+
+    public string? Password { get; set; }
 }

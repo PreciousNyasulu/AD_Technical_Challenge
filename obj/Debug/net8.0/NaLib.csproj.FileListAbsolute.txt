@@ -67,3 +67,41 @@
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/Npgsql.dll
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/DotNetEnv.dll
 /home/it/Documents/Code/experiments/AD_Technical_Challenge/bin/Debug/net8.0/Sprache.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.csproj.AssemblyReference.cache
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.AssemblyInfoInputs.cache
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.AssemblyInfo.cs
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.csproj.CoreCompileInputs.cache
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.sourcelink.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\refint\NaLib.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.pdb
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\appsettings.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\NaLib.exe
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\NaLib.deps.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\NaLib.runtimeconfig.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\NaLib.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\NaLib.pdb
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Dapper.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Npgsql.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Sprache.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets\msbuild.NaLib.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets\msbuild.build.NaLib.props
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.NaLib.props
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.NaLib.props
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\scopedcss\bundle\NaLib.styles.css
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.csproj.CopyComplete
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\NaLib.genruntimeconfig.cache
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\obj\Debug\net8.0\ref\NaLib.dll
+C:\Users\Precious Nyasulu\Desktop\AD_Technical_Challenge\bin\Debug\net8.0\System.Security.Permissions.dll

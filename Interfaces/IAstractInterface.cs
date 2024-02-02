@@ -2,5 +2,5 @@ namespace NaLib;
 
 public interface IAbstractInterface
 {
-    IUser GetUserService();
+    // IUser GetUserService();
 }

@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {}
+    "C:\\Users\\Precious Nyasulu\\Desktop\\AD_Technical_Challenge\\NaLib.csproj": {}
   },
   "projects": {
-    "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj": {
+    "C:\\Users\\Precious Nyasulu\\Desktop\\AD_Technical_Challenge\\NaLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
+        "projectUniqueName": "C:\\Users\\Precious Nyasulu\\Desktop\\AD_Technical_Challenge\\NaLib.csproj",
         "projectName": "NaLib",
-        "projectPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/NaLib.csproj",
-        "packagesPath": "/home/it/.nuget/packages/",
-        "outputPath": "/home/it/Documents/Code/experiments/AD_Technical_Challenge/obj/",
+        "projectPath": "C:\\Users\\Precious Nyasulu\\Desktop\\AD_Technical_Challenge\\NaLib.csproj",
+        "packagesPath": "C:\\Users\\Precious Nyasulu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Precious Nyasulu\\Desktop\\AD_Technical_Challenge\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/it/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Precious Nyasulu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +52,10 @@
             "DotNetEnv": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -74,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,7 +7,7 @@ namespace NaLib.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly ILogger<AuthController> _logger;
-
+ UserRepository abstractInterface = new UserRepository();
     public AuthController(ILogger<AuthController> logger)
     {
         _logger = logger;
@@ -20,18 +20,17 @@ public class AuthController : ControllerBase
         {
             return BadRequest();
         }
-
-        UserRepository abstractInterface;
-
-        abstractInterface = new UserRepository();
-
-        return Ok(abstractInterface.GetUsers());
+        return Ok(abstractInterface.GetAll());
     }
 
     [HttpPost("register",Name ="register")]
     public IActionResult Post([FromBody] Users User)
     {
-        
+        if (User == null)
+        {
+            BadRequest("Missing fields");
+        }
+        abstractInterface.Add(User);
         return Ok();
     }
        
