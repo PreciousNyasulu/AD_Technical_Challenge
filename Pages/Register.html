@@ -1,55 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script defer src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
-    <title>Registration Page</title>
-</head>
-<body class="bg-gray-100 p-8">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+        <script defer src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+        <title>Registration Page</title>
+    </head>
+    <body class="bg-gray-100 p-8">
 
-    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
 
-        <h1 class="text-2xl font-semibold mb-6">Register</h1>
+            <h1 class="text-2xl font-semibold mb-6">Register</h1>
 
-        <form id="registrationForm" action="/auth/register" method="post">
+            <form id="registrationForm"
+                action="http://localhost:5009/auth/register" method="post"
+                enctype="application/x-www-form-urlencoded">
 
-            <div class="mb-4">
-                <label for="username" class="block text-gray-600 text-sm font-medium">Username:</label>
-                <input type="text" id="username" name="username" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-4">
+                    <label for="username"
+                        class="block text-gray-600 text-sm font-medium">Username:</label>
+                    <input type="text" id="username" name="username"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <div class="mb-4">
-                <label for="lastname" class="block text-gray-600 text-sm font-medium">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-4">
+                    <label for="lastname"
+                        class="block text-gray-600 text-sm font-medium">Last
+                        Name:</label>
+                    <input type="text" id="lastname" name="lastname"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <div class="mb-4">
-                <label for="firstname" class="block text-gray-600 text-sm font-medium">First Name:</label>
-                <input type="text" id="firstname" name="firstname" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-4">
+                    <label for="firstname"
+                        class="block text-gray-600 text-sm font-medium">First
+                        Name:</label>
+                    <input type="text" id="firstname" name="firstname"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <div class="mb-4">
-                <label for="phonenumber" class="block text-gray-600 text-sm font-medium">Phone Number:</label>
-                <input type="tel" id="phonenumber" name="phonenumber" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-4">
+                    <label for="phonenumber"
+                        class="block text-gray-600 text-sm font-medium">Phone
+                        Number:</label>
+                    <input type="tel" id="phonenumber" name="phonenumber"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <div class="mb-4">
-                <label for="email" class="block text-gray-600 text-sm font-medium">Email:</label>
-                <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-4">
+                    <label for="email"
+                        class="block text-gray-600 text-sm font-medium">Email:</label>
+                    <input type="email" id="email" name="email"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <div class="mb-6">
-                <label for="password" class="block text-gray-600 text-sm font-medium">Password:</label>
-                <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md">
-            </div>
+                <div class="mb-6">
+                    <label for="password"
+                        class="block text-gray-600 text-sm font-medium">Password:</label>
+                    <input type="password" id="password" name="password"
+                        class="mt-1 p-2 w-full border rounded-md">
+                </div>
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Register</button>
+                <input type="submit" 
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md" />
 
-        </form>
+            </form>
 
-    </div>
+        </div>
 
-</body>
+        <script>
+            $(document).ready(function () {
+                // Initialize jQuery Validation Plugin
+                $('#registrationForm').validate({
+                    rules: {
+                        username: {
+                            required: true
+                        },
+                        firstname: {
+                            required: true
+                        },
+                        lastname: {
+                            required: true
+                        },
+                        password: {
+                            required: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        phonenumber: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        username: "Please enter your username",
+                        firstname: "Please enter your first name",
+                        lastname: "Please enter your last name",
+                        password: "Please enter a password",
+                        email: {
+                            required: "Please enter your email",
+                            email: "Please enter a valid email address"
+                        },
+                        phonenumber: "Please enter your phone number"
+                    },
+                    submitHandler: function (form) {
+                        // Form is valid, proceed with AJAX submission
+                        submitForm();
+                    }
+                });
+        
+                function submitForm() {
+                    var jsonData = {
+                        username: $("#username").val(),
+                        firstname: $("#firstname").val(),
+                        lastname: $("#lastname").val(),
+                        password: $("#password").val(),
+                        email: $("#email").val(),
+                        phonenumber: $("#phonenumber").val()
+                    };
+        
+                    console.log('JSON Data:', jsonData);
+        
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:5009/auth/register',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(jsonData),
+                        success: function (data) {
+                            console.log('Success:', data);
+                            // Handle success response here
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                            // Handle error response here
+                        }
+                    });
+                }
+            });
+        </script>        
+    </body>
 </html>
