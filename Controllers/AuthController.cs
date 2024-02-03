@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using NaLib.Models;
+using NaLib.Services;
 
 namespace NaLib.Controllers;
 
@@ -7,31 +9,53 @@ namespace NaLib.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly ILogger<AuthController> _logger;
- UserRepository abstractInterface = new UserRepository();
-    public AuthController(ILogger<AuthController> logger)
+    UserService _userService;
+    public AuthController(ILogger<AuthController> logger,UserService userService)
     {
         _logger = logger;
+        _userService = userService;
     }
 
-    [HttpPost("login",Name = "login")]
+    [HttpPost("login", Name = "login")]
     public IActionResult Post([FromBody] LoginPayload Body)
     {
         if (Body == null)
         {
             return BadRequest();
         }
-        return Ok(abstractInterface.GetAll());
+
+        LoginStatus Status = _userService.ConfirmUser(new Users{Email = Body.Username, UserName = Body.Username, Password = Body.Password});
+
+        switch (Status)
+        {
+            case LoginStatus.IncorrectPassword:
+                return BadRequest(new ErrorMessage { Message = "Wrong Password" });
+            case LoginStatus.NotFound :
+                return NotFound(new ErrorMessage { Message = "Account not found" });
+            case LoginStatus.Success :
+                return Ok(new ErrorMessage { Message = "Logged in successfully" });
+            default:
+                return BadRequest(new ErrorMessage{Message = "Failed to login"});
+        }
+        
     }
 
-    [HttpPost("register",Name ="register")]
-    public IActionResult Post([FromBody] Users User)
+    [HttpPost("register", Name = "register")]
+    public IActionResult Register([FromBody] Users user)
     {
-        if (User == null)
+        if (user == null)
         {
-            BadRequest("Missing fields");
+            return BadRequest(new ErrorMessage{Message = "Missing fields"});
         }
-        abstractInterface.Add(User);
-        return Ok();
+        
+
+        if (_userService.UserExists(user))
+        {
+            return Conflict(new ErrorMessage{Message = "User already exists"});
+        }
+
+        _userService.AddUser(user);
+        return CreatedAtRoute("register", new { id = user.Id }, user);
     }
-       
+
 }
