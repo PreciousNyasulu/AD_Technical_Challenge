@@ -1,3 +1,4 @@
+using NaLib.Models;
 
 namespace NaLib;
 public class LibraryMemberRepository : IRepository<LibraryMember>
