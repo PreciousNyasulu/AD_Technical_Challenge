@@ -1,46 +1,48 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using NaLib.Models;
 
-namespace NaLib.Services;
-
-public class PasswordService
+namespace NaLib.Services
 {
-    private readonly IPasswordHasher<Users> _passwordHasher;
-
-    public PasswordService()
-    { 
-        _passwordHasher = new PasswordHasher<Users>(new OptionsWrapper<PasswordHasherOptions>(
-            new PasswordHasherOptions
-            {
-                CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV3,
-            }
-        ));
-    }
-
-    public string HashPassword(string password)
+    public class PasswordService
     {
-        // Generate a random salt
-        string salt = Guid.NewGuid().ToString();
+        private readonly IPasswordHasher<Users> _passwordHasher;
 
-        // Combine password and salt, then hash
-        string hashedPassword = _passwordHasher.HashPassword(null, salt + password);
+        public PasswordService()
+        { 
+            _passwordHasher = new PasswordHasher<Users>(new OptionsWrapper<PasswordHasherOptions>(
+                new PasswordHasherOptions
+                {
+                    CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV3,
+                }
+            ));
+        }
 
-        // Store both the hashed password and the salt in the database
-        string storedPassword = salt + hashedPassword;
+        public string HashPassword(string password)
+        {
+            // Generate a random salt
+            string salt = Guid.NewGuid().ToString();
 
-        return storedPassword;
-    }
+            // Combine password and salt, then hash
+            string hashedPassword = _passwordHasher.HashPassword(null, salt + password);
 
-    public bool VerifyPassword(string storedPassword, string providedPassword)
-    {
-        // Extract salt and hashed password from the stored value
-        string salt = storedPassword.Substring(0, 36); // Assuming a standard GUID length
-        string hashedPassword = storedPassword.Substring(36);
+            // Store both the hashed password and the salt in the database
+            string storedPassword = salt + hashedPassword;
 
-        // Combine provided password and salt, then hash
-        string hashedProvidedPassword = _passwordHasher.HashPassword(null, salt + providedPassword);
+            return storedPassword;
+        }
 
-        // Compare the stored hashed password with the newly hashed provided password
-        return _passwordHasher.VerifyHashedPassword(null, hashedPassword, hashedProvidedPassword) == PasswordVerificationResult.Success;
+        public bool VerifyPassword(string storedPassword, string providedPassword)
+        {
+            // Extract salt and hashed password from the stored value
+            string salt = storedPassword.Substring(0, 36); // Assuming a standard GUID length
+            string hashedPassword = storedPassword.Substring(36);
+
+            // Combine provided password and salt, then hash
+            var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(null, hashedPassword, salt + providedPassword);
+
+            // Check the result
+            return passwordVerificationResult == PasswordVerificationResult.Success;
+        }
     }
 }
