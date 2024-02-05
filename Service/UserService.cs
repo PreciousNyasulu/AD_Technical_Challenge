@@ -1,3 +1,5 @@
+using NaLib.Models;
+
 namespace NaLib.Services;
 public class UserService
 {
@@ -20,7 +22,29 @@ public class UserService
 
     public Boolean UserExists(Users User)
     {
-        Console.WriteLine(_userRepository.Get(User).Count<Users>());
         return _userRepository.Get(User).Count<Users>() > 0;
+    }
+
+    public Users GetUser(Users User)
+    {
+         return _userRepository.Get(User).FirstOrDefault();
+    }
+
+    public LoginStatus ConfirmUser(Users User)
+    {
+        if(!UserExists(User))
+        {
+            return LoginStatus.NotFound;   
+        }
+        Users _User = GetUser(User);
+        PasswordService passwordService = new PasswordService();
+        bool PasswordVerification = passwordService.VerifyPassword(storedPassword: _User.Password, providedPassword: User.Password);
+        
+        if(!PasswordVerification)
+        {
+            return LoginStatus.IncorrectPassword;
+        }
+
+        return LoginStatus.Success;
     }
 }
