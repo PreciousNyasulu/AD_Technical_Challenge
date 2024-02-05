@@ -1,4 +1,5 @@
 using NaLib;
+using NaLib.Models;
 using NaLib.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IRepository<Users>, UserRepository>();
+builder.Services.AddScoped<LibraryResourceService>();
+builder.Services.AddScoped<IRepository<LibraryResource>, LibraryResourceRepository>();
+builder.Services.AddScoped<HtmlService>();
+
 builder.Services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
