@@ -134,11 +134,12 @@
                         data: JSON.stringify(jsonData),
                         success: function (data) {
                             console.log('Success:', data);
-                            // Handle success response here
+                            alert("Account Created successfully");
+                            window.location.href = "/login";
                         },
                         error: function (error) {
                             console.error('Error:', error);
-                            // Handle error response here
+                            
                         }
                     });
                 }

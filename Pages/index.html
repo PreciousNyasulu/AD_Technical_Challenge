@@ -28,7 +28,7 @@
 
     <div id="login-result" class="mt-4"></div>
 
-    <p class="mt-4 text-sm text-gray-600">Don't have an account? <a href="/auth/signup" class="text-blue-500">Sign up</a></p>
+    <p class="mt-4 text-sm text-gray-600">Don't have an account? <a href="/register" class="text-blue-500">Sign up</a></p>
 </div>
 
 <script>
@@ -37,13 +37,11 @@ $(document).ready(function() {
         var username = $("#username").val();
         var password = $("#password").val();
 
-        // Create an object with the login data
         var loginData = {
             username: username,
             password: password
         };
 
-        // Perform the AJAX request using jQuery
         $.ajax({
             type: "POST",
             url: "/auth/login",
@@ -54,7 +52,8 @@ $(document).ready(function() {
                 window.location.href = "/home";
             },
             error: function(error) {
-                $("#login-result").html("Login failed: " + error.responseText);
+                var errorMessage = JSON.parse(error.responseText);
+                $("#login-result").html("Login failed: " + errorMessage.Message);
             }
         });
     });
