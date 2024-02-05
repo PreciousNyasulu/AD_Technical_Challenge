@@ -31,4 +31,25 @@ public class HtmlController : ControllerBase
         // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
+
+    [HttpGet("register", Name = "RegisterPage")]
+    public IActionResult GetRegisterPage()
+    {
+       // Get the path to the HTML file
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Register.html");
+
+        // Check if the file exists
+        if (!System.IO.File.Exists(filePath))
+        {
+            _logger.LogError($"File not found in the specified directory({filePath})");            
+            return NotFound();
+        }
+        // Read the contents of the HTML file
+        var htmlContent = System.IO.File.ReadAllText(filePath);
+
+        // Return the HTML Page
+        return Content(htmlContent, "text/html");
+    }
+
+
 }
