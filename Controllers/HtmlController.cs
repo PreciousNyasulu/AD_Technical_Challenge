@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using NaLib.Services;
 
 namespace NaLib.Controllers;
 
@@ -7,86 +8,72 @@ namespace NaLib.Controllers;
 public class HtmlController : ControllerBase
 {
     private readonly ILogger<HtmlController> _logger;
+    private readonly HtmlService _HtmlService;
 
-    public HtmlController(ILogger<HtmlController> logger)
+    public HtmlController(ILogger<HtmlController> logger,HtmlService htmlService)
     {
         _logger = logger;
+        _HtmlService = htmlService;
     }
 
     [HttpGet(Name = "/")]
     public IActionResult Get()
     {
-       // Get the path to the HTML file
-        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "index.html");
+        string FileName = "index.html";
 
-        // Check if the file exists
-        if (!System.IO.File.Exists(filePath))
+        if (!_HtmlService.FileExists(FileName))
         {
-            _logger.LogError($"File not found in the specified directory({filePath})");            
+            _logger.LogError($"File not found in the pages directory");            
             return NotFound();
         }
-        // Read the contents of the HTML file
-        var htmlContent = System.IO.File.ReadAllText(filePath);
+        var htmlContent = _HtmlService.ServeFile(FileName);
 
-        // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
 
     [HttpGet("register", Name = "RegisterPage")]
     public IActionResult GetRegisterPage()
     {
-       // Get the path to the HTML file
-        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Register.html");
+        string FileName = "Register.html";
 
-        // Check if the file exists
-        if (!System.IO.File.Exists(filePath))
+        if (!_HtmlService.FileExists(FileName))
         {
-            _logger.LogError($"File not found in the specified directory({filePath})");            
+            _logger.LogError($"File not found in the pages directory");            
             return NotFound();
         }
-        // Read the contents of the HTML file
-        var htmlContent = System.IO.File.ReadAllText(filePath);
+        var htmlContent = _HtmlService.ServeFile(FileName);
 
-        // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
     
     [HttpGet("home", Name = "HomePage")]
     public IActionResult GetHomePage()
     {
-       // Get the path to the HTML file
-        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Home.html");
+        string FileName = "Home.html";
 
-        // Check if the file exists
-        if (!System.IO.File.Exists(filePath))
+        if (!_HtmlService.FileExists(FileName))
         {
-            _logger.LogError($"File not found in the specified directory({filePath})");            
+            _logger.LogError($"File not found in the pages directory");            
             return NotFound();
         }
-        // Read the contents of the HTML file
-        var htmlContent = System.IO.File.ReadAllText(filePath);
+        var htmlContent = _HtmlService.ServeFile(FileName);
 
-        // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
     
     [HttpGet("checkin-out", Name = "Checkin-outPage")]
     public IActionResult GetcheckInOut()
     {
-       // Get the path to the HTML file
-        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Check_in_out.html");
+        string FileName = "Check_in_out.html";
 
-        // Check if the file exists
-        if (!System.IO.File.Exists(filePath))
+        if (!_HtmlService.FileExists(FileName))
         {
-            _logger.LogError($"File not found in the specified directory({filePath})");            
+            _logger.LogError($"File not found in the pages directory");            
             return NotFound();
         }
-        // Read the contents of the HTML file
-        var htmlContent = System.IO.File.ReadAllText(filePath);
+        var htmlContent = _HtmlService.ServeFile(FileName);
 
-        // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
-
+    
 }
