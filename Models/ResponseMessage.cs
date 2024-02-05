@@ -1,5 +1,5 @@
 namespace NaLib;
-public class ErrorMessage
+public class ResponseMessage
 {
     public string? Message { get; set; }
 }

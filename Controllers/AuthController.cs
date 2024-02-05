@@ -29,13 +29,13 @@ public class AuthController : ControllerBase
         switch (Status)
         {
             case LoginStatus.IncorrectPassword:
-                return BadRequest(new ErrorMessage { Message = "Wrong Password" });
+                return BadRequest(new ResponseMessage { Message = "Wrong Password" });
             case LoginStatus.NotFound :
-                return NotFound(new ErrorMessage { Message = "Account not found" });
+                return NotFound(new ResponseMessage { Message = "Account not found" });
             case LoginStatus.Success :
-                return Ok(new ErrorMessage { Message = "Logged in successfully" });
+                return Ok(new ResponseMessage { Message = "Logged in successfully" });
             default:
-                return BadRequest(new ErrorMessage{Message = "Failed to login"});
+                return BadRequest(new ResponseMessage{Message = "Failed to login"});
         }
         
     }
@@ -45,13 +45,13 @@ public class AuthController : ControllerBase
     {
         if (user == null)
         {
-            return BadRequest(new ErrorMessage{Message = "Missing fields"});
+            return BadRequest(new ResponseMessage{Message = "Missing fields"});
         }
         
 
         if (_userService.UserExists(user))
         {
-            return Conflict(new ErrorMessage{Message = "User already exists"});
+            return Conflict(new ResponseMessage{Message = "User already exists"});
         }
 
         _userService.AddUser(user);
