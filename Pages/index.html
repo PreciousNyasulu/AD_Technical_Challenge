@@ -50,11 +50,10 @@ $(document).ready(function() {
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify(loginData),
             success: function(response) {
-                // Handle the success response
                 $("#login-result").html("Login successful");
+                window.location.href = "/home";
             },
             error: function(error) {
-                // Handle the error response
                 $("#login-result").html("Login failed: " + error.responseText);
             }
         });
