@@ -17,7 +17,7 @@
             <h1 class="text-2xl font-semibold mb-6">Register</h1>
 
             <form id="registrationForm"
-                action="http://localhost:5009/auth/register" method="post"
+                action="/auth/register" method="post"
                 enctype="application/x-www-form-urlencoded">
 
                 <div class="mb-4">
@@ -128,7 +128,7 @@
         
                     $.ajax({
                         type: 'POST',
-                        url: 'http://localhost:5009/auth/register',
+                        url: '/auth/register',
                         contentType: 'application/json; charset=utf-8',
                         dataType: 'json',
                         data: JSON.stringify(jsonData),
