@@ -50,6 +50,43 @@ public class HtmlController : ControllerBase
         // Return the HTML Page
         return Content(htmlContent, "text/html");
     }
+    
+    [HttpGet("home", Name = "HomePage")]
+    public IActionResult GetHomePage()
+    {
+       // Get the path to the HTML file
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Home.html");
 
+        // Check if the file exists
+        if (!System.IO.File.Exists(filePath))
+        {
+            _logger.LogError($"File not found in the specified directory({filePath})");            
+            return NotFound();
+        }
+        // Read the contents of the HTML file
+        var htmlContent = System.IO.File.ReadAllText(filePath);
+
+        // Return the HTML Page
+        return Content(htmlContent, "text/html");
+    }
+    
+    [HttpGet("checkin-out", Name = "Checkin-outPage")]
+    public IActionResult GetcheckInOut()
+    {
+       // Get the path to the HTML file
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Pages", "Check_in_out.html");
+
+        // Check if the file exists
+        if (!System.IO.File.Exists(filePath))
+        {
+            _logger.LogError($"File not found in the specified directory({filePath})");            
+            return NotFound();
+        }
+        // Read the contents of the HTML file
+        var htmlContent = System.IO.File.ReadAllText(filePath);
+
+        // Return the HTML Page
+        return Content(htmlContent, "text/html");
+    }
 
 }
