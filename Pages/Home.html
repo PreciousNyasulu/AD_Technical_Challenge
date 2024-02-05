@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Front Desk System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-8">
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-800">Welcome to the Library Front Desk System</h1>
+        <p class="mt-4 text-lg text-gray-600">Empowering front desk staff to efficiently manage library operations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <div class="group p-6 bg-white rounded shadow-md transition-transform duration-300 transform hover:scale-105">
+            <a href="/inventory" class="block text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-500">Manage Library Inventory</a>
+            <p class="text-gray-600">Effortlessly add, edit, and remove books, journals, and other resources from the library inventory. Keep track of availability and locations.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group p-6 bg-white rounded shadow-md transition-transform duration-300 transform hover:scale-105">
+            <a href="/checkin-out" class="block text-2xl font-bold text-gray-800 mb-4 group-hover:text-green-500">Streamline Check-Ins and Check-Outs</a>
+            <p class="text-gray-600">Handle user registrations, check-in returned items, and manage check-outs seamlessly. Provide excellent service to library patrons.</p>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center">
+        <div class="flex justify-center mt-4">
+            <a href="/auth/Logout" class="text-green-500 font-semibold mx-2">Logout</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

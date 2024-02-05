@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In/Out - Library Front Desk System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-8">
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-800">Check-In/Out Management</h1>
+        <p class="mt-4 text-lg text-gray-600">Efficiently handle check-ins and check-outs at the front desk.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Check-In Section -->
+        <div class="p-6 bg-white rounded shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-In</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="member-id" class="block text-gray-700 text-sm font-bold mb-2">Member ID:</label>
+                    <input type="text" id="member-id" name="member-id" class="w-full px-3 py-2 border rounded" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="book-id" class="block text-gray-700 text-sm font-bold mb-2">Book ID:</label>
+                    <input type="text" id="book-id" name="book-id" class="w-full px-3 py-2 border rounded" required>
+                </div>
+
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Check-In</button>
+            </form>
+        </div>
+
+        <!-- Check-Out Section -->
+        <div class="p-6 bg-white rounded shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-Out</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="member-id-checkout" class="block text-gray-700 text-sm font-bold mb-2">Member ID:</label>
+                    <input type="text" id="member-id-checkout" name="member-id-checkout" class="w-full px-3 py-2 border rounded" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="book-id-checkout" class="block text-gray-700 text-sm font-bold mb-2">Book ID:</label>
+                    <input type="text" id="book-id-checkout" name="book-id-checkout" class="w-full px-3 py-2 border rounded" required>
+                </div>
+
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Check-Out</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
