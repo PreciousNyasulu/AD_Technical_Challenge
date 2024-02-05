@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Library Resource</title>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    </head>
+    <body class="bg-gray-100">
+
+        <div class="container mx-auto mt-8 p-8 bg-white rounded shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Add Library Resource</h2>
+
+            <form id="addResourceForm" class="space-y-4">
+                <div class="flex flex-col">
+                    <label for="title"
+                        class="text-sm font-semibold">Title:</label>
+                    <input type="text" id="title" name="title"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="author"
+                        class="text-sm font-semibold">Author:</label>
+                    <input type="text" id="author" name="author"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="totalCopies" class="text-sm font-semibold">Total
+                        Copies:</label>
+                    <input type="number" id="totalCopies" name="totalCopies"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="availableCopies"
+                        class="text-sm font-semibold">Available Copies:</label>
+                    <input type="number" id="availableCopies"
+                        name="availableCopies"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="isbn"
+                        class="text-sm font-semibold">ISBN:</label>
+                    <input type="text" id="isbn" name="isbn"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="publicationYear"
+                        class="text-sm font-semibold">Publication Year:</label>
+                    <input type="number" id="publicationYear"
+                        name="publicationYear"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="genre"
+                        class="text-sm font-semibold">Genre:</label>
+                    <select id="genre" name="genre"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                        <option value="fiction">Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Biography">Biography</option>
+                        <option value="History">History</option>
+                        <option value="Self-Help">Self-Help</option>
+                        <option value="Newspaper">Newspaper</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="publisher"
+                        class="text-sm font-semibold">Publisher:</label>
+                    <input type="text" id="publisher" name="publisher"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="description"
+                        class="text-sm font-semibold">Description:</label>
+                    <textarea id="description" name="description" rows="3"
+                        class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 focus:outline-none">
+                    Add Resource
+                </button>
+            </form>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('#addResourceForm').validate({
+                    rules: {
+                        title: {
+                            required: true
+                        },
+                        author: {
+                            required: true
+                        },
+                        totalCopies: {
+                            required: true
+                        },
+                        availableCopies: {
+                            required: true
+                        },
+                        isbn: {
+                            required: true,
+                        },
+                        publicationYear: {
+                            required: true
+                        },
+                        genre: {
+                            required: true
+                        }, 
+                        publisher: {
+                            required: true
+                        },
+                        description: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        submitForm();
+                    }
+                });
+                
+                function submitForm() {
+                    var jsonData = {
+                        title: $("#title").val(),
+                        author: $("#author").val(),
+                        totalCopies: $("#totalCopies").val(),
+                        availableCopies: $("#availableCopies").val(),
+                        isbn: $("#isbn").val(),
+                        publicationYear: $("#publicationYear").val(),
+                        genre: $("#genre").val(),
+                        publisher: $("#publisher").val(),
+                        description: $("#description").val()
+                    };
+        
+                    console.log('JSON Data:', jsonData);
+        
+                    $.ajax({
+                        type: 'POST',
+                        url: '/resource/add',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(jsonData),
+                        success: function (data) {
+                            console.log('Success:', data);
+                            alert("Resource added successfully");
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+            });
+        </script>
+
+    </body>
+</html>

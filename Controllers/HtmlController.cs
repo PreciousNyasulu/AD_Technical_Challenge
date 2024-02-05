@@ -76,4 +76,18 @@ public class HtmlController : ControllerBase
         return Content(htmlContent, "text/html");
     }
     
+    [HttpGet("resource", Name = "resource_page")]
+    public IActionResult GetResourcePage()
+    {
+        string FileName = "AddResource.html";
+
+        if (!_HtmlService.FileExists(FileName))
+        {
+            _logger.LogError($"File not found in the pages directory");            
+            return NotFound();
+        }
+        var htmlContent = _HtmlService.ServeFile(FileName);
+
+        return Content(htmlContent, "text/html");
+    }
 }
