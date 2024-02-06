@@ -13,9 +13,11 @@
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="/home" class="hover:text-gray-300">Home</a></li>
-                    <li><a href="/resources" class="hover:text-gray-300">Library Resources</a></li>
+                    <li><a href="/ViewResources" class="hover:text-gray-300">Library Resources</a></li>
                     <li><a href="/checkin-out" class="hover:text-gray-300">Check-In/Out</a></li>
                     <li><a href="/AddMember" class="hover:text-gray-300">Add Member</a></li>
+                    <li><a href="/resource" class="hover:text-gray-300">Add Member</a></li>
+                    <li><a href="/" class="hover:text-gray-300">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +33,7 @@
         <!-- Check-In Section -->
         <div class="p-6 bg-white rounded shadow-md">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-In</h2>
-            <form>
+            <form class="checkinForm">
                 <div class="mb-4">
                     <label for="member-id" class="block text-gray-700 text-sm font-bold mb-2">Member ID:</label>
                     <input type="text" id="member-id" name="member-id" class="w-full px-3 py-2 border rounded" required>
@@ -49,15 +51,15 @@
         <!-- Check-Out Section -->
         <div class="p-6 bg-white rounded shadow-md">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-Out</h2>
-            <form>
+            <form class="checkoutForm">
                 <div class="mb-4">
                     <label for="member-id-checkout" class="block text-gray-700 text-sm font-bold mb-2">Member ID:</label>
-                    <input type="text" id="member-id-checkout" name="member-id-checkout" class="w-full px-3 py-2 border rounded" required>
+                    <input type="text" id="member_id_checkout" name="member_id_checkout" class="w-full px-3 py-2 border rounded" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="book-id-checkout" class="block text-gray-700 text-sm font-bold mb-2">Book ID:</label>
-                    <input type="text" id="book-id-checkout" name="book-id-checkout" class="w-full px-3 py-2 border rounded" required>
+                    <input type="text" id="book_id_checkout" name="book_id_checkout" class="w-full px-3 py-2 border rounded" required>
                 </div>
 
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Check-Out</button>
@@ -65,6 +67,84 @@
         </div>
     </div>
 </div>
-
+<script>
+    $(document).ready(function () {
+                $('#checkoutForm').validate({
+                    rules: {
+                        member_id_checkout: {
+                            required: true
+                        },
+                        book_id_checkout: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        checkOut();
+                    }
+                });
+                
+                function checkOut() {
+                    var jsonData = {
+                        MemberId: $("#title").val(),
+                        BookNumber: $("#author").val()
+                    };
+        
+                    console.log('JSON Data:', jsonData);
+        
+                    $.ajax({
+                        type: 'POST',
+                        url: '/resource/CheckOut',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(jsonData),
+                        success: function (data) {
+                            console.log('Success:', data);
+                            alert("Resource added successfully checked-out");
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+            
+            $('#checkinForm').validate({
+                    rules: {
+                        member_id_checkout: {
+                            required: true
+                        },
+                        book_id_checkout: {
+                            required: true
+                        }
+                    },
+                    submitHandler: function (form) {
+                        checkOut();
+                    }
+                });
+                
+                function checkOut() {
+                    var jsonData = {
+                        MemberId: $("#title").val(),
+                        BookNumber: $("#author").val()
+                    };
+        
+                    console.log('JSON Data:', jsonData);
+        
+                    $.ajax({
+                        type: 'POST',
+                        url: '/resource/CheckIn',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(jsonData),
+                        success: function (data) {
+                            console.log('Success:', data);
+                            alert("Resource added successfully checked-in");
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+            });
+</script>
 </body>
 </html>

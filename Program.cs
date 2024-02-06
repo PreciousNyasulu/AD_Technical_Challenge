@@ -16,6 +16,7 @@ builder.Services.AddScoped<IRepository<LibraryResource>, LibraryResourceReposito
 builder.Services.AddScoped<HtmlService>();
 builder.Services.AddScoped<IRepository<LibraryMember>,LibraryMemberRepository>();
 builder.Services.AddScoped<LibraryMemberService>();
+builder.Services.AddScoped<IRepository<BorrowHistory>, BorrowHistoryRepository>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
             {
