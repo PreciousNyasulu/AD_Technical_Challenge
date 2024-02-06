@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using NaLib.Models;
 
 namespace NaLib.Services;
@@ -18,5 +19,10 @@ public class LibraryResourceService
     public bool ResourceExists(LibraryResource Entity)
     {
         return _LibraryResourceRepository.Exists(Entity);
+    }
+
+    public string GetAllResources()
+    {
+        return JsonConvert.SerializeObject(_LibraryResourceRepository.GetAll());
     }
 }

@@ -33,5 +33,10 @@ public class ResourceController : ControllerBase
         _ResourceService.AddResource(Body);
         return Ok(new ResponseMessage{Message = "Resource added"});
     }
-
+    
+    [HttpGet("GetAll", Name = "Get_Resources")]
+    public IActionResult GetAllResources()
+    {
+        return Ok(_ResourceService.GetAllResources());
+    }
 }

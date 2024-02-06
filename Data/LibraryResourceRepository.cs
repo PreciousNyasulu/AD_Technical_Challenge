@@ -39,7 +39,10 @@ public class LibraryResourceRepository : IRepository<LibraryResource>
     public IEnumerable<LibraryResource> Get(LibraryResource Entity)
     {
         connection.Open();
-        IEnumerable<LibraryResource> LibraryResource = connection.Query<LibraryResource>("SELECT * FROM library_resources WHERE isbn = @ISBN or title = @TITLE", new LibraryResource { ISBN = Entity.ISBN, Title = Entity.Title });
+        IEnumerable<LibraryResource> LibraryResource = connection.Query<LibraryResource>(
+                "SELECT r.resource_id, r.title, r.author, r.total_copies, r.available_copies, r.isbn, r.publication_year, (select name from book_genres bg where r.genre=bg.id), r.publisher, r.description FROM public.library_resources r WHERE r.isbn = @ISBN or r.title = @TITLE", 
+                new LibraryResource { ISBN = Entity.ISBN, Title = Entity.Title }
+            );
         connection.Close();
         return LibraryResource;
     }
@@ -47,7 +50,7 @@ public class LibraryResourceRepository : IRepository<LibraryResource>
     public IEnumerable<LibraryResource> GetAll()
     {
         connection.Open();
-        IEnumerable<LibraryResource> libraryResources = connection.Query<LibraryResource>("SELECT * FROM library_resources");
+        IEnumerable<LibraryResource> libraryResources = connection.Query<LibraryResource>("SELECT r.resource_id, r.title, r.author, r.total_copies, r.available_copies, r.isbn, r.publication_year, (select name as genre from book_genres bg where r.genre=bg.id), r.publisher, r.description FROM public.library_resources r");
         connection.Close();
         return libraryResources;
     }

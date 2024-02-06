@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member - Library Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navigation Panel -->
+<div class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">NaLib</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="/home" class="hover:text-gray-300">Home</a></li>
+                <li><a href="/resources" class="hover:text-gray-300">Library Resources</a></li>
+                <li><a href="/checkin-out" class="hover:text-gray-300">Check-In/Out</a></li>
+                <li><a href="#" class="hover:text-gray-300">Add Member</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Add Member Form -->
+<div class="container mx-auto mt-8 p-8 bg-white rounded shadow-lg">
+    <h2 class="text-2xl font-bold mb-4">Add Member</h2>
+
+    <form id="addMemberForm" method="post" class="space-y-4">
+        <div class="flex flex-col">
+            <label for="firstName" class="text-sm font-semibold">First Name:</label>
+            <input type="text" id="firstName" name="firstName" class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="flex flex-col">
+            <label for="lastName" class="text-sm font-semibold">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="flex flex-col">
+            <label for="email" class="text-sm font-semibold">Email:</label>
+            <input type="email" id="email" name="email" class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="flex flex-col">
+            <label for="phoneNumber" class="text-sm font-semibold">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="flex flex-col">
+            <label for="address" class="text-sm font-semibold">Address:</label>
+            <input type="text" id="address" name="address" class="px-4 py-2 border rounded focus:outline-none focus:border-blue-500">
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 focus:outline-none">
+            Add Member
+        </button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+                $('#addMemberForm').validate({
+                    rules: {
+                        firstName: {
+                            required: true
+                        },
+                        lastName: {
+                            required: true
+                        },
+                        email: {
+                            required: true
+                        },
+                        phoneNumber: {
+                            required: true
+                        },
+                        address: {
+                            required: true,
+                        }
+                    },
+                    submitHandler: function (form) {
+                        submitForm();
+                    }
+                });
+                
+                function submitForm() {
+                    var jsonData = {
+                        firstName: $("#firstName").val(),
+                        lastName: $("#lastName").val(),
+                        email: $("#totalCopies").val(),
+                        phoneNumber: $("#phoneNumber").val(),
+                        address: $("#address").val()
+                    };
+                    console.log('JSON Data:', jsonData);
+        
+                    $.ajax({
+                        type: 'POST',
+                        url: '/member/add',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(jsonData),
+                        success: function (data) {
+                            console.log('Success:', data);
+                            alert("Member added successfully");
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+            });
+</script>
+
+</body>
+</html>

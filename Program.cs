@@ -1,4 +1,5 @@
 using NaLib;
+using NaLib.Data;
 using NaLib.Models;
 using NaLib.Services;
 
@@ -13,6 +14,8 @@ builder.Services.AddScoped<IRepository<Users>, UserRepository>();
 builder.Services.AddScoped<LibraryResourceService>();
 builder.Services.AddScoped<IRepository<LibraryResource>, LibraryResourceRepository>();
 builder.Services.AddScoped<HtmlService>();
+builder.Services.AddScoped<IRepository<LibraryMember>,LibraryMemberRepository>();
+builder.Services.AddScoped<LibraryMemberService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
             {

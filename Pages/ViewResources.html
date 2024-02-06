@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Resources</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Library Management System</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="/home" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="/resources" class="hover:text-gray-300">Library Resources</a></li>
+                    <li><a href="/checkin-out" class="hover:text-gray-300">Check-In/Out</a></li>
+                    <li><a href="/AddMember" class="hover:text-gray-300">Add Member</a></li>
+                    <li><a href="/resource" class="hover:text-gray-300">Add Resource</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="flex h-screen">
+
+        <!-- Content Area -->
+        <div class="w-3/2 p-8">
+
+            <div class="bg-white p-6 rounded-md shadow-md">
+
+                <h1 class="text-2xl font-semibold mb-6">Library Resources</h1>
+
+                <table class="min-w-full bg-white border border-gray-300" id="resourceTable">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b">Title</th>
+                            <th class="py-2 px-4 border-b">Author</th>
+                            <th class="py-2 px-4 border-b">Total Copies</th>
+                            <th class="py-2 px-4 border-b">Available Copies</th>
+                            <th class="py-2 px-4 border-b">ISBN</th>
+                            <th class="py-2 px-4 border-b">Publication Year</th>
+                            <th class="py-2 px-4 border-b">Genre</th>
+                            <th class="py-2 px-4 border-b">Publisher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">The Great Gatsby</td>
+                            <td class="py-2 px-4 border-b">F. Scott Fitzgerald</td>
+                            <td class="py-2 px-4 border-b">5</td>
+                            <td class="py-2 px-4 border-b">3</td>
+                            <td class="py-2 px-4 border-b">978-3-16-148410-0</td>
+                            <td class="py-2 px-4 border-b">1925</td>
+                            <td class="py-2 px-4 border-b">Fiction</td>
+                            <td class="py-2 px-4 border-b">Scribner</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/resource/GetAll',
+            type: 'GET',
+            dataType: 'json',
+            success: function (jsonData) {
+                function populateTable(data) {
+                    var tableBody = $('#resourceTable tbody');
+                    tableBody.empty();
+                    $.each(data, function (index, resource) {
+                        var row = '<tr>' +
+                            '<td>' + resource.Title + '</td>' +
+                            '<td>' + resource.Author + '</td>' +
+                            '<td>' + resource.TotalCopies + '</td>' +
+                            '<td>' + resource.AvailableCopies + '</td>' +
+                            '<td>' + resource.ISBN + '</td>' +
+                            '<td>' + resource.PublicationYear + '</td>' +
+                            '<td>' + resource.Genre + '</td>' +
+                            '<td>' + resource.Publisher + '</td>'+
+                            '</tr>';
+
+                        tableBody.append(row);
+                    });
+                }
+                populateTable(jsonData);
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+</html>
